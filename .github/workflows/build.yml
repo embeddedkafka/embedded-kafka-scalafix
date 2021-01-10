@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Check formatting
+      run: sbt scalafmtCheckAll
+    - name: Compile
+      run: sbt compile
+    - name: Run cross-version tests
+      run: sbt +tests/test
