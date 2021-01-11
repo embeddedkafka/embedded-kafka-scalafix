@@ -1,3 +1,5 @@
+import ReleaseTransformations._
+
 lazy val V = _root_.scalafix.sbt.BuildInfo
 inThisBuild(
   List(
@@ -41,7 +43,21 @@ lazy val rules = project.settings(
   Compile / compile := (Compile / compile)
     .dependsOn(Compile / scalafmtAll)
     .value,
-  libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % V.scalafixVersion
+  libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % V.scalafixVersion,
+  releaseProcess := Seq[ReleaseStep](
+    checkSnapshotDependencies,
+    inquireVersions,
+    runClean,
+    runTest,
+    setReleaseVersion,
+    commitReleaseVersion,
+    tagRelease,
+    setNextVersion,
+    commitNextVersion,
+    pushChanges
+  ),
+  releaseVersionBump := sbtrelease.Version.Bump.Minor,
+  releaseCrossBuild := true
 )
 
 lazy val input = project.settings(
