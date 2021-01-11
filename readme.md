@@ -13,4 +13,5 @@ rules = [
 ]
 ```
 
-* Run `scalafix` command from sbt.
+* Run `test/scalafix` command from sbt.
+* Remove the rule and the dependency.
