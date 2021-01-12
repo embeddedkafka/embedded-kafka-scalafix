@@ -1,5 +1,8 @@
 # Scalafix rules for Embedded Kafka
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.embeddedkafka/embedded-kafka-scalafix_2.13/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.embeddedkafka/embedded-kafka-scalafix_2.13)
+![Build](https://github.com/embeddedkafka/embedded-kafka-scalafix/workflows/Build/badge.svg)
+
 Scalafix rule to help `embedded-kafka` users update every import statement to the new package name.
 
 ## How to use
